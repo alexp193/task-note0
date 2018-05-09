@@ -1,0 +1,3 @@
+<div class="notes-list" style="margin:0 auto; display: inline-block;">
+  <note-item *ngFor="let note of notes" (remove)="notesSrv.deleteNote($event)" (edit)="notesSrv.editNote($event)" [note]="note"></note-item>
+</div>

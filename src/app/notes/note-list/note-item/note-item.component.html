@@ -1,0 +1,7 @@
+<div style="display:flex;">
+  <span style="margin-right:20px;" contenteditable (blur)="onBlur($event,note,'note')">{{note.note}}</span>
+  <span>{{note.time}}</span>
+  <button (click)="remove.emit(note.id)" aria-label="Delete task" class="task-item__button" type="button">
+    delete
+  </button>
+</div>
