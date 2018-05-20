@@ -8,10 +8,13 @@ export class NotesSrvService {
   private notes: Notes = [];
   private dataArray = new Subject<Notes>();
 
-
   dataNotes$ = this.dataArray.asObservable();
 
-  constructor() { }
+
+  constructor() {
+    this.notes = [{ id: 1, note: "AAAAAA", createTime: 123123 },
+    { id: 2, note: "BBBBBB", createTime: 12311233 }];
+  }
 
   getIndex(id: number) {
     let index = this.notes.map(function (item) { return item.id; }).indexOf(id);
@@ -37,4 +40,11 @@ export class NotesSrvService {
     this.dataArray.next(this.notes)
   }
 
+  getNotes(): Notes {
+    return this.notes;
+  }
+
 }
+
+
+

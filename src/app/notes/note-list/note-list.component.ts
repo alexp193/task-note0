@@ -3,11 +3,13 @@ import { Observable } from 'rxjs/Observable';
 import { Note, Notes } from '../interfeces/note';
 import { NotesSrvService } from '../notes-srv.service';
 
+
 @Component({
   selector: 'note-list',
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.css']
 })
+
 export class NoteListComponent implements OnInit {
 
 
@@ -15,11 +17,15 @@ export class NoteListComponent implements OnInit {
 
   public notes = [];
 
+
   ngOnInit() {
     this.notesSrv.dataNotes$.subscribe(
       data => {
+        console.log(data)
         this.notes = data;
       });
+
+    this.notes = this.notesSrv.getNotes();
   }
 
 }
